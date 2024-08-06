@@ -7,7 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
+    "fmt:check": "prettier --check .",
+    "fmt:write": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "next lint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -31,6 +39,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

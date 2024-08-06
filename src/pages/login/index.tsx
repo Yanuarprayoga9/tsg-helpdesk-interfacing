@@ -6,8 +6,8 @@ import { LoginIcon } from '@/components/login/login-icon';
 
 const index = () => {
   return (
-    <Container className="py-24 max-w-md">
-      <div className="flex flex-col space-y-4 justify-center">
+    <Container className="py-16 md:py-24 max-w-md">
+      <div className="flex flex-col space-y-8 justify-center">
         <LoginIcon />
         <LoginHeader
           heading="Helpdesk Web App"

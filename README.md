@@ -1,9 +1,9 @@
-## TSG-Helpdesk-Interfacing
+# TSG-Helpdesk-Interfacing
 
-### Description
+## Description
 
 
-### Running Locally
+## Running Locally
 
 To get started with this project, follow these steps:
 
@@ -42,9 +42,6 @@ Runs the app in development mode. Open http://localhost:3000 to view it in the b
    npm run dev
 ```
   
-
-### Project Details
-
 
 
 ## Available Scripts

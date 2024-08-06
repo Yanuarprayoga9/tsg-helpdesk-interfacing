@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -13,6 +13,7 @@ import {
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Link from 'next/link';
+import { Loader } from 'lucide-react';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -24,6 +25,7 @@ const formSchema = z.object({
 });
 
 export const LoginForm = () => {
+    const [loading,setLoading] = useState<boolean>(false);
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,6 +37,10 @@ export const LoginForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true)
+    setTimeout(()=>{
+        setLoading(false)
+    },3000)
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
@@ -72,7 +78,15 @@ export const LoginForm = () => {
           <p className=" text-slate-500">Lupa password?</p>
           <Link href={'/fotgot'} className="text-blue-400">Hubungi Administrator</Link>
         </div>
-        <Button type="submit" className='bg-customPurple'>Login</Button>
+        <Button type="submit" disabled={loading} className='bg-customPurple'>
+            {
+                loading ? (
+                    <Loader/>
+                ) : (
+                    "Login"
+                )
+            }
+        </Button>
       </form>
     </Form>
   );

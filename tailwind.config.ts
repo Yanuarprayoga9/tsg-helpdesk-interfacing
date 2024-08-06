@@ -19,6 +19,9 @@ const config = {
     },
     extend: {
       colors: {
+        whitesmoke1: '#F3EFFC', 
+        whitesmoke2: '#E7E7E7', 
+        whitesmoke3: '#84818A', 
         customPurple: '#7F56D8', 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

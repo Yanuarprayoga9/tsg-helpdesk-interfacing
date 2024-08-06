@@ -3,7 +3,7 @@ import React from 'react'
 
 const index = () => {
   return (
-    <DashboardLayout title='Dashboard'>
+    <DashboardLayout title='My-Ticket'>
         <h1>
             test
         </h1>

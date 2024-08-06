@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "fmt:check": "prettier --check .",
-    "fmt:write": "prettier --write ."
+    "fmt:write": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

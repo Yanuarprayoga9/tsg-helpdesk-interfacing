@@ -12,6 +12,7 @@ import {
 } from '../ui/form';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import Link from 'next/link';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -69,9 +70,9 @@ export const LoginForm = () => {
         />
         <div className="flex flex-wrap text-sm justify-center gap-3">
           <p className=" text-slate-500">Lupa password?</p>
-          <p className="text-blue-400">Hubungi Administrator</p>
+          <Link href={'/fotgot'} className="text-blue-400">Hubungi Administrator</Link>
         </div>
-        <Button type="submit" className='bg-blue-700'>Login</Button>
+        <Button type="submit" className='bg-customPurple'>Login</Button>
       </form>
     </Form>
   );

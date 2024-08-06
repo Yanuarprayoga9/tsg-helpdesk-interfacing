@@ -11,6 +11,12 @@
     "fmt:write": "prettier --write .",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "next lint --fix",
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-label": "^2.1.0",

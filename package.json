@@ -9,6 +9,7 @@
     "lint": "next lint",
     "fmt:check": "prettier --check .",
     "fmt:write": "prettier --write .",
+    "format": "npx prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install"
   },
   "lint-staged": {

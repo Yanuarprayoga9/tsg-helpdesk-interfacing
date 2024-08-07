@@ -4,52 +4,39 @@ import { useRouter } from 'next/router';
 import { X } from 'lucide-react';
 import { useSidebar } from '@/context/sidebar.context';
 import { useWindowWidth } from '@react-hook/window-size';
+import Image from 'next/image';
+
+import dashboardicon from '../../assets/dashboard.svg';
+import myticketicon from '../../assets/myticket.svg';
+import newticketicon from '../../assets/new-ticket.svg';
+import messagesicon from '../../assets/messages.svg';
+import leadericon from '../../assets/leader.svg';
+import engineericon from '../../assets/myticket.svg';
 
 interface MenuItem {
   name: string;
   route: string;
-  icon: React.JSX.Element;
-  query?: { [key: string]: string };
+  icon: string;
 }
 
 const menuItems: MenuItem[] = [
-  { name: 'Dashboard', route: '/dashboard', icon: <span>📊</span> },
-  { name: 'My Ticket', route: '/dashboard/my-ticket', icon: <span>🎫</span> },
-  { name: 'New Ticket', route: '/dashboard/new-ticket', icon: <span>🆕</span> },
-  //   { name: 'On Progress', route: '/dashboard/my-ticket', icon: <span>🔄</span>, query: { status: 'on-progress' } },
-  //   { name: 'Cancelled', route: '/dashboard/my-ticket', icon: <span>❌</span>, query: { status: 'cancelled' } },
-  //   { name: 'Done', route: '/dashboard/my-ticket', icon: <span>✅</span>, query: { status: 'done' } },
-  //   { name: 'Closed', route: '/dashboard/my-ticket', icon: <span>📅</span>, query: { status: 'closed' } },
-  { name: 'Message', route: '/dashboard/message', icon: <span>💬</span> },
-  {
-    name: 'Leader Dash',
-    route: '/dashboard/leader-dash',
-    icon: <span>👨‍💼</span>,
-  },
-  {
-    name: 'Engineer Dash',
-    route: '/dashboard/engineer-dash',
-    icon: <span>👩‍💻</span>,
-  },
+  { name: 'Dashboard', route: '/dashboard', icon: dashboardicon },
+  { name: 'My Ticket', route: '/dashboard/my-ticket', icon: myticketicon },
+  { name: 'New Ticket', route: '/dashboard/new-ticket', icon: newticketicon },
+  { name: 'Message', route: '/dashboard/message', icon: messagesicon },
+  { name: 'Leader Dash', route: '/dashboard/leader-dash', icon: leadericon },
+  { name: 'Engineer Dash', route: '/dashboard/engineer-dash', icon: engineericon },
 ];
 
 const Sidebar: React.FC = () => {
   const router = useRouter();
   const currentRoute = router.pathname;
-  const currentQuery = router.query;
 
-  const isActiveRoute = (route: string, query?: { [key: string]: string }) => {
-    if (currentRoute !== route) {
-      return false;
-    }
-    if (!query) {
-      return true;
-    }
-    return Object.keys(query).every((key) => currentQuery[key] === query[key]);
-  };
+  const isActiveRoute = (route: string) => currentRoute === route;
+
   const [isClient, setIsClient] = useState(false);
   const windowWidth = useWindowWidth();
-  const { isOpen,setIsOpen } = useSidebar();
+  const { isOpen, setIsOpen } = useSidebar();
 
   useEffect(() => {
     setIsClient(true);
@@ -58,38 +45,28 @@ const Sidebar: React.FC = () => {
   const mobile = isClient && windowWidth < 768;
 
   return (
-    <div className="w-full relative h-screen ">
-      <h1 className="text-xl font-bold  md:text-xl sm:font-medium text-center pt-2  m-2">
+    <div className="w-full relative h-screen">
+      <h1 className="text-xl font-bold md:text-xl sm:font-medium text-center pt-2 m-2">
         TSG HELPDESK
         <span className="block"> SYSTEM</span>
       </h1>
-      {(mobile && isOpen) && (
-          <X
-            className="absolute w-8 h-12 right-4 top-2"
-            onClick={() => setIsOpen(!isOpen)}
-          />
-        )}
-      <div className="flex  flex-col py-4">
+      {mobile && isOpen && (
+        <X
+          className="absolute w-8 h-12 right-4 top-2"
+          onClick={() => setIsOpen(!isOpen)}
+        />
+      )}
+      <div className="flex flex-col py-4">
         {menuItems.map((item) => (
-          <Link
-            key={item.route + JSON.stringify(item.query)}
-            href={{ pathname: item.route, query: item.query }}
-            passHref
-          >
+          <Link key={item.route} href={item.route} passHref>
             <div
-              className={`flex   py-2 my-2 md:px-6 px-4 cursor-pointer ${
-                isActiveRoute(item.route, item.query)
-                  ? 'bg-lowoppurple'
-                  : 'hover:bg-purple-200'
+              className={`flex py-2 my-2 md:px-6 px-4 cursor-pointer ${
+                isActiveRoute(item.route) ? 'bg-lowoppurple' : 'hover:bg-purple-200'
               }`}
             >
-              {item.icon}
+              <Image src={item.icon} alt={item.name} width={24} height={24} />
               <span
-                className={`ml-2  ${
-                  isActiveRoute(item.route, item.query)
-                    ? 'text-customPurple'
-                    : ''
-                }`}
+                className={`ml-2 ${isActiveRoute(item.route) ? 'text-customPurple' : ''}`}
               >
                 {item.name}
               </span>

@@ -19,10 +19,12 @@ const config = {
     },
     extend: {
       colors: {
-        whitesmoke1: '#F3EFFC', 
+        whitecustom:"#FFFFFF",
+        whitesmoke1: '#F9F9FB', 
         whitesmoke2: '#E7E7E7', 
         whitesmoke3: '#84818A', 
         customPurple: '#7F56D8', 
+        lowoppurple:"#7F56D81A",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

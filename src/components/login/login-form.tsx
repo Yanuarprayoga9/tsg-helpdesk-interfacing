@@ -13,7 +13,7 @@ import {
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Link from 'next/link';
-import { Loader } from 'lucide-react';
+import LoadingSpinner from '../ui/loading-spinner';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -25,7 +25,7 @@ const formSchema = z.object({
 });
 
 export const LoginForm = () => {
-    const [loading,setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -37,17 +37,20 @@ export const LoginForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setLoading(true)
-    setTimeout(()=>{
-        setLoading(false)
-    },3000)
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex flex-col justify-center">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-4 flex flex-col justify-center"
+      >
         <FormField
           control={form.control}
           name="username"
@@ -68,7 +71,7 @@ export const LoginForm = () => {
             <FormItem>
               <FormLabel>password</FormLabel>
               <FormControl>
-                <Input placeholder="*******" type='password' {...field} />
+                <Input placeholder="*******" type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -76,16 +79,12 @@ export const LoginForm = () => {
         />
         <div className="flex flex-wrap text-sm justify-center gap-3">
           <p className=" text-slate-500">Lupa password?</p>
-          <Link href={'/fotgot'} className="text-blue-400">Hubungi Administrator</Link>
+          <Link href={'/fotgot'} className="text-blue-400">
+            Hubungi Administrator
+          </Link>
         </div>
-        <Button type="submit" disabled={loading} className='bg-customPurple'>
-            {
-                loading ? (
-                    <Loader/>
-                ) : (
-                    "Login"
-                )
-            }
+        <Button type="submit" disabled={loading} className="bg-customPurple">
+          {loading ? <LoadingSpinner loading={loading} size={5} /> : 'Login'}
         </Button>
       </form>
     </Form>

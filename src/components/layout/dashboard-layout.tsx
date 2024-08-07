@@ -9,7 +9,7 @@ type Props = {
   title: string;
 };
 
-export const DashboardLayout: React.FC<Props> = ({ children,title }) => {
+export const DashboardLayout: React.FC<Props> = ({ children, title }) => {
   const [isClient, setIsClient] = useState(false);
   const windowWidth = useWindowWidth();
   const { isOpen } = useSidebar();
@@ -29,7 +29,7 @@ export const DashboardLayout: React.FC<Props> = ({ children,title }) => {
         {/* Sidebar */}
         {(!mobile || isOpen) && (
           <div
-            className={` ${ 
+            className={` ${
               mobile
                 ? 'fixed  top-0 left-0 w-full h-full  z-50 overflow-y-auto'
                 : 'col-span-8 border-r-2 sm:col-span-3 2xl:col-span-2 '
@@ -51,8 +51,10 @@ export const DashboardLayout: React.FC<Props> = ({ children,title }) => {
           </div>
           <div className="flex flex-col h-full bg-slate-50 ">
             <div className="w-full h-full p-4 ">
-              <h1 className='text-xl font-semibold py-4'>{title}</h1>
-              <div className="bg-white rounded-md shadow-md pb-16">{children}</div>
+              <h1 className="text-xl font-semibold py-4">{title}</h1>
+              <div className="bg-white rounded-md shadow-md pb-16">
+                {children}
+              </div>
             </div>
           </div>
         </div>

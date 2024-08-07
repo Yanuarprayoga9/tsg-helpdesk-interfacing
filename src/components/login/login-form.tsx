@@ -13,7 +13,7 @@ import {
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Link from 'next/link';
-import { Loader } from 'lucide-react';
+import LoadingSpinner from '../ui/loading-spinner';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -81,7 +81,7 @@ export const LoginForm = () => {
         <Button type="submit" disabled={loading} className='bg-customPurple'>
             {
                 loading ? (
-                    <Loader/>
+                    <LoadingSpinner loading={loading} size={5} />
                 ) : (
                     "Login"
                 )

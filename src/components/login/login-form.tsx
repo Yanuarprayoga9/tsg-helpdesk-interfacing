@@ -14,6 +14,8 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Link from 'next/link';
 import LoadingSpinner from '../ui/loading-spinner';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -26,6 +28,7 @@ const formSchema = z.object({
 
 export const LoginForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,16 +38,18 @@ export const LoginForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
+    toast('Mengautentikasi', { type: 'info', autoClose: 3000 });
     setTimeout(() => {
+      toast('Berhasil', { type: 'success', autoClose: 100 });
       setLoading(false);
+      // Show success toast
+      router.push('/dashboard/');
     }, 3000);
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
   return (
     <Form {...form}>
       <form

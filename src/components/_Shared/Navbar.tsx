@@ -12,7 +12,7 @@ export const Navbar = () => {
     <div className="w-full h-16 flex items-center justify-between  z-20">
       <div className="flex ml-4 gap-x-2 items-center">
         <Menu className="my-2 w-8 h-8 " onClick={() => setIsOpen(!isOpen)} />
-        <h1 className="text-base text-center">Welcome , Yanuar Prayoga</h1>
+        <h1 className="text-base text-center">Welcome👋👋! Yanuar Prayoga</h1>
       </div>
       <div className="flex ml-4 gap-x-2 px-4 md:px-8 items-center justify-evenly">
         <div className="relative p-2 border rounded-full">

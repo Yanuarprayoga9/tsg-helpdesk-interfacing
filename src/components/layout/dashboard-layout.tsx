@@ -8,25 +8,17 @@ type Props = {
   children: React.ReactNode;
   title: string;
 };
-
 export const DashboardLayout: React.FC<Props> = ({ children, title }) => {
   const [isClient, setIsClient] = useState(false);
   const windowWidth = useWindowWidth();
   const { isOpen } = useSidebar();
-
   useEffect(() => {
     setIsClient(true);
   }, []);
-
   const mobile = isClient && windowWidth < 768;
-
   return (
     <div className="w-full h-screen relative">
-      {/* {mobile && isOpen && (
-        <div className="fixed inset-0 bg-black shadow-sm bg-opacity-50 z-10"></div>
-      )} */}
       <div className="grid grid-cols-12 h-screen">
-        {/* Sidebar */}
         {(!mobile || isOpen) && (
           <div
             className={` ${
@@ -38,7 +30,6 @@ export const DashboardLayout: React.FC<Props> = ({ children, title }) => {
             <Sidebar />
           </div>
         )}
-        {/* Content area */}
         <div
           className={`${
             mobile
@@ -49,10 +40,10 @@ export const DashboardLayout: React.FC<Props> = ({ children, title }) => {
           <div className="sticky top-0 shadow-md z-10 bg-white">
             <Navbar />
           </div>
-          <div className="flex flex-col h-full bg-slate-50 ">
-            <div className="w-full h-full p-4 ">
-              <h1 className="text-xl font-semibold py-4">{title}</h1>
-              <div className="bg-white rounded-md shadow-md pb-16">
+          <div className="flex flex-col h-full bg-whitesmoke1 ">
+            <div className="w-full h-full p-1 sm:p-4 ">
+              <h1 className="text-xl ml-2 sm:ml-0 font-semibold py-4">{title}</h1>
+              <div className="bg-whitecustom p-1 sm:p-4 rounded-md shadow-md pb-16">
                 {children}
               </div>
             </div>

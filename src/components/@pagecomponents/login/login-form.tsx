@@ -9,11 +9,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
+} from '../../ui/form';
+import { Button } from '../../ui/button';
+import { Input } from '../../ui/input';
 import Link from 'next/link';
-import LoadingSpinner from '../ui/loading-spinner';
+import LoadingSpinner from '../../ui/loading-spinner';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 

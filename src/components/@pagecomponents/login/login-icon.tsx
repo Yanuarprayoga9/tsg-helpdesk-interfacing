@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import icon from '../../assets/icon.png';
+import icon from '../../../assets/icon.png';
 export const LoginIcon = () => {
   return (
     <Image

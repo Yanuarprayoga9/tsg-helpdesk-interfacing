@@ -1,5 +1,11 @@
 import React from 'react';
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -13,6 +19,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -63,10 +70,10 @@ export const NewTicketForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 relative"
+        className=" relative"
       >
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-16">
-          <div className="">
+        <div className="grid grid-cols-1    sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-8">
+          <div className="col-span-3 sm:col-span-1 order-1">
             <FormField
               control={form.control}
               name="name"
@@ -81,40 +88,127 @@ export const NewTicketForm = () => {
               )}
             />
           </div>
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="Type Email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="Type Email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="col-span-3 sm:col-span-1 order-2">
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Type Email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="order-6 col-span-3 sm:col-span-1 md:order-3 row-span-3">
+            <FormField
+              control={form.control}
+              name="image"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Upload Attachment Here</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Type image" className='h-[125px]' type='file' {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="order-4 col-span-3 sm:col-span-1">
+            <FormField
+              control={form.control}
+              name="type"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Type</FormLabel>
+                  <FormControl>
+                    <Select {...field}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="light">Light</SelectItem>
+                        <SelectItem value="dark">Dark</SelectItem>
+                        <SelectItem value="system">System</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="order-5 col-span-3 sm:col-span-1">
+            <FormField
+              control={form.control}
+              name="category"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Category</FormLabel>
+                  <FormControl>
+                    <Select {...field}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="light">Light</SelectItem>
+                        <SelectItem value="dark">Dark</SelectItem>
+                        <SelectItem value="system">System</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="order-7 col-span-3">
+            <FormLabel>Subject</FormLabel>
+            <FormField
+              control={form.control}
+              name="subject"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea placeholder="Type Subject" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="order-8 col-span-3">
+            <FormLabel>Description</FormLabel>
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea placeholder="Type Description" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
         </div>
-        <Button
-          className="bg-customPurple absolute bottom-0 right-2 "
-          type="submit"
-        >
-          send ticket
-        </Button>
+        <div className="flex justify-end w-full">
+          <Button
+            className="bg-customPurple block "
+            type="submit"
+          >
+            send ticket
+          </Button>
+        </div>
       </form>
-    </Form>
+    </Form >
   );
 };

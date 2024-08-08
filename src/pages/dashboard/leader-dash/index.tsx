@@ -24,7 +24,7 @@ const index = () => {
           position="Senior Project Manager"
           username="Trias Bratakusuma"
         />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-12 mx-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-8 mx-4">
           <TicketCard icon={allticketicon} title="All Tickets" count="230" />
           <TicketCard icon={newticketicon} title="New Tickets" count="12" />
           <TicketCard icon={onprogressicon} title="On Progress" count="35" />

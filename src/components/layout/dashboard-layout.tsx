@@ -23,7 +23,7 @@ export const DashboardLayout: React.FC<Props> = ({ children, title }) => {
           <div
             className={` ${
               mobile
-                ? 'fixed  top-0 left-0 w-full h-full  z-50 overflow-y-auto'
+                ? 'fixed bg-white top-0 left-0 w-full h-full  z-50 overflow-y-auto'
                 : 'col-span-8 border-r-2 sm:col-span-3 2xl:col-span-2 '
             }`}
           >

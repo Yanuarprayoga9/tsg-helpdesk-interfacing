@@ -3,7 +3,7 @@ import { DashboardLayout } from '@/components/layout/dashboard-layout';
 import React from 'react';
 import profileBanner from '../../../assets/bannerprofile.svg';
 import avatar from '../../../assets/leaddash-profile.svg';
-import TicketCard from '@/components/ui/ticket-card';
+import TicketCard from '@/components/molecules/ticket-card';
 import allticketicon from '../../../assets/all-tickets-dashboard-icon.svg';
 import newticketicon from '../../../assets/new-ticket-dashboard-icon.svg';
 import onprogressicon from '../../../assets/on-progress-dashboard-icon.svg';

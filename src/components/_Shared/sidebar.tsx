@@ -25,7 +25,11 @@ const menuItems: MenuItem[] = [
   { name: 'New Ticket', route: '/dashboard/new-ticket', icon: newticketicon },
   { name: 'Message', route: '/dashboard/message', icon: messagesicon },
   { name: 'Leader Dash', route: '/dashboard/leader-dash', icon: leadericon },
-  { name: 'Engineer Dash', route: '/dashboard/engineer-dash', icon: engineericon },
+  {
+    name: 'Engineer Dash',
+    route: '/dashboard/engineer-dash',
+    icon: engineericon,
+  },
 ];
 
 const Sidebar: React.FC = () => {
@@ -46,7 +50,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className="w-full relative h-screen">
-      <h1 className="text-xl font-bold md:text-xl sm:font-medium text-center pt-2 m-2">
+      <h1 className="font-semibold text-xl font-bold md:text-xl text-center pt-2 m-2">
         TSG HELPDESK
         <span className="block"> SYSTEM</span>
       </h1>
@@ -61,12 +65,16 @@ const Sidebar: React.FC = () => {
           <Link key={item.route} href={item.route} passHref>
             <div
               className={`flex py-2 my-2 md:px-6 px-4 cursor-pointer ${
-                isActiveRoute(item.route) ? 'bg-lowoppurple' : 'hover:bg-purple-200'
+                isActiveRoute(item.route)
+                  ? 'bg-lowoppurple'
+                  : 'hover:bg-purple-200'
               }`}
             >
               <Image src={item.icon} alt={item.name} width={24} height={24} />
               <span
-                className={`ml-2 ${isActiveRoute(item.route) ? 'text-customPurple' : ''}`}
+                className={`ml-2 ${
+                  isActiveRoute(item.route) ? 'text-customPurple' : ''
+                }`}
               >
                 {item.name}
               </span>

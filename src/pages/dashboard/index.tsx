@@ -1,5 +1,6 @@
 import { DashboardLayout } from '@/components/layout/dashboard-layout';
 import React from 'react';
+import { useState } from 'react';
 import SearchBar from '@/components/ui/search-bar';
 import TabNavigation from '@/components/ui/tab-navigation';
 import allticketsicon from '../../assets/all-tickets-dashboard-icon.svg';
@@ -9,8 +10,17 @@ import closedicon from '../../assets/closed-dashboard-icon.svg';
 import cancelledicon from '../../assets/cancelled-dashboard-icon.svg';
 import leaderimage from '../../assets/leaddash-profile.svg';
 import TicketItem from '@/components/molecules/ticket-item';
+import Pagination from '@/components/molecules/pagination';
 
-const index = () => {
+const index: React.FC = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   const tabs = [
     {
       label: 'All Tickets',
@@ -52,6 +62,11 @@ const index = () => {
         priority="Low"
         date="2 hours ago"
         image={leaderimage}
+      />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
       />
     </DashboardLayout>
   );

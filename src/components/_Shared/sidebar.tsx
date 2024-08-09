@@ -49,8 +49,8 @@ const Sidebar: React.FC = () => {
   const mobile = isClient && windowWidth < 768;
 
   return (
-    <div className="w-full relative h-screen">
-      <h1 className="font-semibold text-xl font-bold md:text-xl text-center pt-2 m-2">
+    <div className="w-full   h-screen ">
+      <h1  className="text-black  text-center text-xl font-bold md:text-xl  pt-2 m-2">
         TSG HELPDESK
         <span className="block"> SYSTEM</span>
       </h1>
@@ -60,11 +60,11 @@ const Sidebar: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
         />
       )}
-      <div className="flex flex-col py-4">
+      <div className="flex flex-col py-4 ">
         {menuItems.map((item) => (
           <Link key={item.route} href={item.route} passHref>
             <div
-              className={`flex py-2 my-2 md:px-6 px-4 cursor-pointer ${
+              className={`flex  py-2 my-2 md:px-6 px-4 cursor-pointer ${
                 isActiveRoute(item.route)
                   ? 'bg-lowoppurple'
                   : 'hover:bg-purple-200'

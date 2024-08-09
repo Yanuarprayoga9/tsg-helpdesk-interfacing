@@ -7,6 +7,8 @@ import doneicon from '../../assets/done-dashboard-icon.svg';
 import onprogressicon from '../../assets/on-progress-dashboard-icon.svg';
 import closedicon from '../../assets/closed-dashboard-icon.svg';
 import cancelledicon from '../../assets/cancelled-dashboard-icon.svg';
+import leaderimage from '../../assets/leaddash-profile.svg';
+import TicketItem from '@/components/molecules/ticket-item';
 
 const index = () => {
   const tabs = [
@@ -24,6 +26,33 @@ const index = () => {
     <DashboardLayout title="Dashboard">
       <SearchBar />
       <TabNavigation tabs={tabs} />
+      <TicketItem
+        ticketNumber="Ticket# 2023-CS123"
+        title="How to deposit money to my portal?"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        author="Adrian Ramadhan"
+        priority="High"
+        date="2 hours ago"
+        image={leaderimage}
+      />
+      <TicketItem
+        ticketNumber="Ticket# 2023-CS123"
+        title="How to deposit money to my portal?"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        author="Adrian Ramadhan"
+        priority="Medium"
+        date="2 hours ago"
+        image={leaderimage}
+      />
+      <TicketItem
+        ticketNumber="Ticket# 2023-CS123"
+        title="How to deposit money to my portal?"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        author="Adrian Ramadhan"
+        priority="Low"
+        date="2 hours ago"
+        image={leaderimage}
+      />
     </DashboardLayout>
   );
 };

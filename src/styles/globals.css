@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-html, :root {
-  margin:0;
+html,
+:root {
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
-  color:"#2E2C34";
-
+  color: '#2E2C34';
 }
 @layer base {
   :root {
@@ -72,4 +72,13 @@ html, :root {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.filter-purple {
+  filter: invert(27%) sepia(79%) saturate(3000%) hue-rotate(255deg)
+    brightness(90%) contrast(90%);
+}
+
+.filter-gray {
+  filter: grayscale(100%);
 }

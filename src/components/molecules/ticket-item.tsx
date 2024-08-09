@@ -79,7 +79,10 @@ const TicketItem: React.FC<TicketItemProps> = ({
           />
           <span className="text-sm text-gray-600">{author}</span>
         </div>
-        <a href="#" className="text-sm text-purple-600 hover:underline">
+        <a
+          href="detail-ticket"
+          className="text-sm text-purple-600 hover:underline"
+        >
           Open Ticket
         </a>
       </div>

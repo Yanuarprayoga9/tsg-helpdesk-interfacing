@@ -28,11 +28,11 @@ const formSchema = z.object({
   email: z.string().email().min(2, {
     message: 'Email harus minimal 2 karakter ',
   }),
-  type: z.string().min(2, {
-    message: 'Type harus minimal 2 karakter ',
+  type: z.string().nonempty({
+    message: 'Type harus dipilih',
   }),
-  category: z.string().min(2, {
-    message: 'Category harus minimal 2 karakter ',
+  category: z.string().nonempty({
+    message: 'Category harus dipilih',
   }),
   image: z.string().min(2, {
     message: 'Image harus minimal 2 karakter ',
@@ -44,6 +44,7 @@ const formSchema = z.object({
     message: 'Description harus minimal 2 karakter ',
   }),
 });
+
 
 export const NewTicketForm = () => {
   // 1. Define your form.
@@ -97,7 +98,7 @@ export const NewTicketForm = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Type Email" {...field} />
+                    <Input placeholder="Type Email" type='email' {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -128,7 +129,7 @@ export const NewTicketForm = () => {
                 <FormItem>
                   <FormLabel>Type</FormLabel>
                   <FormControl>
-                    <Select {...field}>
+                    <Select value={field.value} onValueChange={field.onChange}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="type" />
                       </SelectTrigger>
@@ -152,7 +153,7 @@ export const NewTicketForm = () => {
                 <FormItem>
                   <FormLabel>Category</FormLabel>
                   <FormControl>
-                    <Select {...field}>
+                    <Select value={field.value} onValueChange={field.onChange}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Category" />
                       </SelectTrigger>

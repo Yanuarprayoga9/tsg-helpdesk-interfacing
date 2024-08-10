@@ -12,6 +12,7 @@ import doneicon from '../../../assets/done-dashboard-icon.svg';
 import closedicon from '../../../assets/closed-dashboard-icon.svg';
 import messagesicon from '../../../assets/messages-dashboard-icon.svg';
 import reporticon from '../../../assets/report-dashboard-icon.svg';
+import { Separator } from '@/components/ui/separator';
 
 const index = () => {
   return (
@@ -24,6 +25,7 @@ const index = () => {
           position="Senior Project Manager"
           username="Trias Bratakusuma"
         />
+        <Separator className="w-full my-2" />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-8 mx-4">
           <TicketCard icon={allticketicon} title="All Tickets" count="230" />
           <TicketCard icon={newticketicon} title="New Tickets" count="12" />

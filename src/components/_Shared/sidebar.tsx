@@ -49,39 +49,54 @@ const Sidebar: React.FC = () => {
   const mobile = isClient && windowWidth < 768;
 
   return (
-    <div className="w-full   h-screen ">
-      <h1  className="text-black  text-center text-xl font-bold md:text-xl  pt-2 m-2">
-        TSG HELPDESK
-        <span className="block"> SYSTEM</span>
-      </h1>
-      {mobile && isOpen && (
-        <X
-          className="absolute w-8 h-12 right-4 top-2"
-          onClick={() => setIsOpen(!isOpen)}
-        />
+    <div className="w-full fixed grid grid-cols-12 h-screen">
+      {(!mobile || isOpen) && (
+        <div
+          className={` ${
+            mobile
+              ? 'fixed bg-white top-0 left-0 w-full h-full  z-50 overflow-y-auto'
+              : 'border-r-2 sm:col-span-3 2xl:col-span-2 '
+          }`}
+        >
+          <h1 className="text-black  text-center text-xl font-bold md:text-xl  pt-2 m-2">
+            TSG HELPDESK
+            <span className="block"> SYSTEM</span>
+          </h1>
+          {mobile && isOpen && (
+            <X
+              className="absolute w-8 h-12 right-4 top-2"
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          )}
+          <div className="flex flex-col py-4 ">
+            {menuItems.map((item) => (
+              <Link key={item.route} href={item.route} passHref>
+                <div
+                  className={`flex  py-2 my-2 md:px-6 px-4 cursor-pointer ${
+                    isActiveRoute(item.route)
+                      ? 'bg-lowoppurple'
+                      : 'hover:bg-purple-200'
+                  }`}
+                >
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width={24}
+                    height={24}
+                  />
+                  <span
+                    className={`ml-2 ${
+                      isActiveRoute(item.route) ? 'text-customPurple' : ''
+                    }`}
+                  >
+                    {item.name}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       )}
-      <div className="flex flex-col py-4 ">
-        {menuItems.map((item) => (
-          <Link key={item.route} href={item.route} passHref>
-            <div
-              className={`flex  py-2 my-2 md:px-6 px-4 cursor-pointer ${
-                isActiveRoute(item.route)
-                  ? 'bg-lowoppurple'
-                  : 'hover:bg-purple-200'
-              }`}
-            >
-              <Image src={item.icon} alt={item.name} width={24} height={24} />
-              <span
-                className={`ml-2 ${
-                  isActiveRoute(item.route) ? 'text-customPurple' : ''
-                }`}
-              >
-                {item.name}
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
     </div>
   );
 };

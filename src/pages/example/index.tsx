@@ -1,9 +1,12 @@
+import { useGetProducts } from '@/hooks/use-get-products'
 import React from 'react'
 
-const index = () => {
+const Index = () => {
+  const {data,isLoading,isError,refetch} = useGetProducts({})
+  console.log(data)
   return (
-    <div>index</div>
+    <div>Index</div>
   )
 }
 
-export default index
+export default Index

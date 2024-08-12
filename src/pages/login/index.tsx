@@ -1,8 +1,8 @@
 import Container from '@/components/ui/container';
-import { LoginHeader } from '@/components/@pagecomponents/login/login-header';
-import { LoginForm } from '@/components/@pagecomponents/login/login-form';
+import { LoginHeader } from '@/components/organisms/login/login-header';
+import { LoginForm } from '@/components/organisms/login/login-form';
 import React from 'react';
-import { LoginIcon } from '@/components/@pagecomponents/login/login-icon';
+import { LoginIcon } from '@/components/organisms/login/login-icon';
 
 const index = () => {
   return (

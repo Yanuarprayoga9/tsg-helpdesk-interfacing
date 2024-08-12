@@ -1,4 +1,4 @@
-import { ProfileBanner } from '@/components/@pagecomponents/leader-dash/profile-banner';
+import { ProfileBanner } from '@/components/organisms/leader-dash/profile-banner';
 import { DashboardLayout } from '@/components/layout/dashboard-layout';
 import React from 'react';
 import profileBanner from '../../../assets/bannerprofile.svg';

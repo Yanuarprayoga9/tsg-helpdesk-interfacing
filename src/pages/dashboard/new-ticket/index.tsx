@@ -1,4 +1,4 @@
-import { NewTicketForm } from '@/components/@pagecomponents/new-ticket/new-ticket-form';
+import { NewTicketForm } from '@/components/organisms/new-ticket/new-ticket-form';
 import { DashboardLayout } from '@/components/layout/dashboard-layout';
 import { Separator } from '@/components/ui/separator';
 import React from 'react';
